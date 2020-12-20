@@ -1,14 +1,9 @@
 package bres;
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Stroke;
-import java.awt.geom.Line2D;
+import java.awt.*;
 
 
 public class DrawingComponent extends Component {
+	public int thickness = 1; //experimental
 	
 	public static double getNativeX(double newX, double width) {
 	    return newX + (width/2);
@@ -70,13 +65,11 @@ public class DrawingComponent extends Component {
 //	
 	public void paint(Graphics g) {
 		  Graphics2D g2D = (Graphics2D)g;
-		  	int thickness = 1; //experimental
+		  	
 		  	
 		    g2D.setColor(Color.RED);
 
 		    drawBresenhamsCircle(100, this.getWidth(), this.getHeight(),thickness, g);
-
-		  
 		  
 	}
 }
