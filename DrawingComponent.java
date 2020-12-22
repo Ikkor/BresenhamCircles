@@ -3,9 +3,9 @@ import java.awt.*;
 
 
 public class DrawingComponent extends Component {
-	public int thickness = 1; //experimental
-	public static int radius = 90;
-	public int numcircle = 5;
+	public int thickness = 1; //optional feature
+	public static int radius = 90; //default is 90
+	public int numcircle = 1; //calls appropriate method when numcircle exceeds 1
 	
 	public static double getNativeX(double newX, double width) {
 	    return newX + (width/2);
