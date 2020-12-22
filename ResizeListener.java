@@ -18,6 +18,3 @@ public class ResizeListener implements ComponentListener {
 	      
 }
 	    
-
-
-

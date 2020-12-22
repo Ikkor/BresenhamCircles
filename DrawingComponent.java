@@ -4,6 +4,8 @@ import java.awt.*;
 
 public class DrawingComponent extends Component {
 	public int thickness = 1; //experimental
+	public static int radius = 90;
+	public int numcircle = 5;
 	
 	public static double getNativeX(double newX, double width) {
 	    return newX + (width/2);
@@ -53,23 +55,33 @@ public class DrawingComponent extends Component {
 	    }   
 	}
 	
-//	public static void drawABunchOfBresenhamsCircles(int numOfCircles, double width, double height,int thick, Graphics g) {
-//	    double r = 5;
-//	    double step = (300.0-5.0)/numOfCircles;
-//
-//	    for (int i = 1; i <= numOfCircles; i++) {
-//	        drawBresenhamsCircle((int)r, width, height, g,thick);
-//	        r += step;
-//	    }
-//	}
+	public static void drawABunchOfBresenhamsCircles(int numOfCircles, double width, double height,int thick, Graphics g) {
+	    double r = radius;
+	    double step = (300.0-5.0)/numOfCircles;
+
+	    for (int i = 1; i <= numOfCircles; i++) {
+	        drawBresenhamsCircle((int)r, width, height, thick,g);
+	        r += step;
+	    }
+	}
 //	
 	public void paint(Graphics g) {
+		
 		  Graphics2D g2D = (Graphics2D)g;
+		  RenderingHints rhints = g2D.getRenderingHints();
+		  boolean antialiasOn = rhints.containsValue(RenderingHints.VALUE_ANTIALIAS_ON);
+		  System.out.println(antialiasOn);
+		  g2D.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		  	
-		  	
-		    g2D.setColor(Color.RED);
-
-		    drawBresenhamsCircle(100, this.getWidth(), this.getHeight(),thickness, g);
+		  
+		  
+		  g2D.setColor(Color.RED);
+		  if(numcircle==1) {
+			  drawBresenhamsCircle(radius, this.getWidth(), this.getHeight(),thickness, g);
+		  }
+		  else if(numcircle>=1) {
+			  drawABunchOfBresenhamsCircles(numcircle,this.getWidth(),this.getHeight(),thickness,g);
+		  }
 		  
 	}
 }
