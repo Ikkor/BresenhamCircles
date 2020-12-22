@@ -1,3 +1,6 @@
+
+//this class file is not needed, just to experiment with change in changing active window size
+
 package bres;
 
 import java.awt.Dimension;
